@@ -5,6 +5,7 @@ from datetime import datetime
 import models
 import uuid
 
+
 class BaseModel:
     '''model that all other classes inherit from'''
 
@@ -46,10 +47,12 @@ class BaseModel:
 
     def __str__(self):
         '''string representation'''
-        cls_name = self.__class__.__name__
-        return '[{}] ({}) {}'.format(str(cls_name), self.id, str(self.__dict__))
+        cls_name = str(self.__class__.__name__)
+        s_dict = str(self.__dict__)
+        return '[{}] ({}) {}'.format(cls_name, self.id, s_dict)
 
     def __repr__(self):
         '''internal representation'''
-        cls_name = self.__class__.__name__
-        return '[{}] ({}) {}'.format(str(cls_name), self.id, str(self.__dict__))
+        cls_name = str(self.__class__.__name__)
+        s_dict = str(self.__dict__)
+        return '[{}] ({}) {}'.format(cls_name, self.id, s_dict)

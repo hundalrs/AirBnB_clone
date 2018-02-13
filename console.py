@@ -113,7 +113,8 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
         else:
             key = commands[0] + "." + commands[1]
-            my_storage[key].__dict__[commands[2]] = commands[3].replace('"', '')
+            commands[3] = commands[3].replace('"', '')
+            my_storage[key].__dict__[commands[2]] = commands[3]
             models.storage.save()
 
 if __name__ == "__main__":

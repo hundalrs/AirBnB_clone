@@ -17,9 +17,9 @@ class FileStorage:
 
     __file_path = "file.json"
     __objects = {}
-    classname = {'BaseModel' : BaseModel, 'User' : User, 'State' : State,
-             'City' : City, 'Amenity' : Amenity, 'Place' : Place,
-             'Review' : Review}
+    classname = {'BaseModel': BaseModel, 'User': User, 'State': State,
+                 'City': City, 'Amenity': Amenity, 'Place': Place,
+                 'Review': Review}
 
     def all(self):
         '''returns the dictionary __objects'''
@@ -37,7 +37,6 @@ class FileStorage:
             final_dict[key] = self.__objects[key].to_dict()
         with open(self.__file_path, "w+") as myFile:
             json.dump(final_dict, myFile)
-
 
     def reload(self):
         '''deserializes the JSON file to __objects'''
