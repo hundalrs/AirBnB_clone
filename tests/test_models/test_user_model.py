@@ -77,3 +77,6 @@ class TestUserClass(unittest.TestCase):
         usr = User()
         usr_dict = usr.to_dict()
         self.assertIn('created_at', usr_dict)
+
+if __name__ == '__main__':
+    unittest.main()
