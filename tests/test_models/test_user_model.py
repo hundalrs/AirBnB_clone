@@ -21,21 +21,21 @@ class TestUserClass(unittest.TestCase):
     def test_email_initial(self):
         '''test initial value of email attribute'''
         usr = User()
-        self.assertEqual("", usr.email)
+        self.assertTrue(type(usr.email) is str)
 
     def test_password_initial(self):
         '''test initial value of password attribute'''
         usr = User()
-        self.assertEqual("", usr.password)
+        self.assertTrue(type(usr.password) is str)
 
     def test_first_name_initial(self):
         '''test initial falue of first_name attribute'''
         usr = User()
-        self.assertEqual("", usr.first_name)
+        self.assertTrue(type(usr.first_name) is str)
 
     def test_last_name_initial(self):
         usr = User()
-        self.assertEqual("", usr.last_name)
+        self.assertTrue(type(usr.last_name) is str)
 
     def test_created_at(self):
         '''created at attribute test'''
@@ -69,7 +69,7 @@ class TestUserClass(unittest.TestCase):
     def test_updated_at_to_dict(self):
         '''tests if updated at is in dictionary'''
         usr = User()
-        usr_dict = Usr.to_dict()
+        usr_dict = usr.to_dict()
         self.assertIn('updated_at', usr_dict)
 
     def test_created_at_to_dict(self):
