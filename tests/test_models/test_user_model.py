@@ -8,6 +8,7 @@ from models import storage
 from models.user import User
 from models.base_model import BaseModel
 from datetime import datetime
+from io import StringIO
 
 
 class TestUserClass(unittest.TestCase):
@@ -77,6 +78,14 @@ class TestUserClass(unittest.TestCase):
         usr = User()
         usr_dict = usr.to_dict()
         self.assertIn('created_at', usr_dict)
+
+    def test_attributes(self):
+        '''checks if attributes exist'''
+        usr = User()
+        self.assertTrue("email" in usr.__dir__())
+        self.assertTrue("password" in usr.__dir__())
+        self.assertTrue("first_name" in usr.__dir__())
+        self.assertTrue("last_name" in usr.__dir__())
 
 if __name__ == '__main__':
     unittest.main()
