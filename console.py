@@ -93,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
                     final_list.append(value)
             print(final_list)
         else:
-            print("(** class doesn't exist **")
+            print("** class doesn't exist **")
 
     def do_update(self, arg):
         '''updates an instance based on class name and id'''
@@ -104,7 +104,7 @@ class HBNBCommand(cmd.Cmd):
         elif commands[0] not in classname:
             print("** class doesn't exist **")
         elif len(commands) < 2:
-            print("** instance id is missing **")
+            print("** instance id missing **")
         elif commands[0] + "." + commands[1] not in my_storage:
             print("** no instance found **")
         elif len(commands) < 3:
