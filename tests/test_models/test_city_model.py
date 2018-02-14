@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Test suite for user model
+Test suite for city model
 """
 
 import unittest
@@ -11,7 +11,7 @@ from datetime import datetime
 
 
 class TestUser(unittest.TestCase):
-    '''User Class tests'''
+    '''City Class tests'''
 
     def test_inheritance(self):
         '''tests that City inherits from BaseModel'''
@@ -29,11 +29,6 @@ class TestUser(unittest.TestCase):
         new = City()
         name = getattr(new, "state_id")
         self.assertIsInstance(name, str)
-
-    def test_created_and_updated_at(self):
-        ''' created_at and updated_at  set to current datetime'''
-        new = City()
-        self.assertEqual(new.created_at, new.updated_at)
 
     def updated_at_after_save(self):
         '''tests if updated_at is set to current datetime'''
