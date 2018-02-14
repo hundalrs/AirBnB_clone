@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, arg):
-        '''creates a new instance of BaseModel'''
+        '''creates a new instance of a specific class'''
         if len(arg) == 0:
             print("** class name missing **")
         elif arg not in classname:
@@ -49,9 +49,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         '''prints string representation of instance'''
-        my_storage = models.storage._FileStorage__objects
+        my_storage = models.storage.all()
         commands = shlex.split(arg)
-        print(commands)
         if len(commands) == 0:
             print("** class name missing **")
         elif commands[0] not in classname:
@@ -65,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, arg):
         '''deletes an instance based on the class and id'''
-        my_storage = models.storage._FileStorage__objects
+        my_storage = models.storage.all()
         commands = shlex.split(arg)
         if len(commands) == 0:
             print("** class name missing **")
@@ -82,7 +81,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         '''prints all string representation of all instances'''
         final_list = []
-        my_storage = models.storage._FileStorage__objects
+        my_storage = models.storage.all()
         commands = shlex.split(arg)
         if len(commands) == 0:
             for key, value in my_storage.items():
@@ -98,7 +97,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         '''updates an instance based on class name and id'''
-        my_storage = models.storage._FileStorage__objects
+        my_storage = models.storage.all()
         commands = shlex.split(arg)
         if len(commands) == 0:
             print("** class name missing **")
