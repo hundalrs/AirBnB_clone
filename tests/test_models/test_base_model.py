@@ -39,3 +39,6 @@ class MyTest(unittest.TestCase):
         '''testing if updated_at is assigned'''
         instance_4 = BaseModel()
         self.assertTrue(instance_4.updated_at)
+
+if __name__ == '__main__':
+    unittest.main()
