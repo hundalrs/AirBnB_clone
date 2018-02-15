@@ -47,3 +47,12 @@ class MyTest(unittest.TestCase):
         self.filestorage.new(instance_2)
         self.filestorage.save()
         self.assertTrue(os.path.exists("file.json"))
+
+    def test_str_new(self):
+        '''check if str and new work'''
+        instance = self.filestorage
+        model = BaseModel()
+        instance.new(model)
+        test_string = "{}.{}".format(model.__class__.__name__, model.id)
+        new_dict = instance.all()
+        self.assertIn(test_string, new_dict)
