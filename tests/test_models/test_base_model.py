@@ -8,7 +8,7 @@ import sys
 import unittest
 
 
-class MyTest(unittest.TestCase):
+class TestBaseModel(unittest.TestCase):
     '''unittests for BaseModel'''
 
     def test_string(self):
