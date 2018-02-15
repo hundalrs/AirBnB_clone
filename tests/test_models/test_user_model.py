@@ -19,13 +19,13 @@ class TestUserClass(unittest.TestCase):
         test1 = User()
         test2 = User()
         self.assertTrue(hasattr(test1, "email"))
-        self.assertTrue(hasattr(test2, "password"))
+        self.assertTrue(hasattr(test1, "password"))
         self.assertTrue(hasattr(test1, "first_name"))
-        self.assertTrue(hasattr(test2, "last_name"))
+        self.assertTrue(hasattr(test1, "last_name"))
         self.assertTrue(type(test1.email) is str)
         self.assertTrue(type(test1.first_name) is str)
-        self.assertTrue(type(test2.password) is str)
-        self.assertTrue(type(test2. last_name) is str)
+        self.assertTrue(type(test1.password) is str)
+        self.assertTrue(type(test1. last_name) is str)
         self.assertTrue(type(test1.id) is str)
         self.assertTrue(test1.id != test2.id)
 
@@ -46,5 +46,13 @@ class TestUserClass(unittest.TestCase):
         new_save = usr.updated_at
         self.assertTrue(test_updated != new_save)
         
+    def test_string(self):
+        '''tests string method output'''
+        usr = User()
+        usr_id = usr.id
+        usr_dict = usr.__dict__
+        st = "[User] ({}) {}".format(usr_id, usr_dict)
+        self.assertEqual(st, str(usr))
+
 if __name__ == '__main__':
     unittest.main()
