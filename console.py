@@ -69,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
         if len(commands) == 0:
             print("** class name missing **")
         elif commands[0] not in classname:
-            print("** class doesnt's exist **")
+            print("** class doesn't exist **")
         elif len(commands) == 1:
             print("** instance id missing **")
         elif commands[0] + "." + commands[1] not in my_storage:
