@@ -31,6 +31,16 @@ class MyTest(unittest.TestCase):
         '''check if filestorage is working correctly'''
         self.assertEqual(type(self.filestorage), type(FileStorage()))
 
+    def test_reload(self):
+        '''check if reload works after saving'''
+        instance_1 = BaseModel()
+        instance_1_id = instance_1.id
+        self.filestorage.new(instance_1)
+        self.filestorage.save()
+        self.filestorage.reload()
+        instance_1_dict = self.filestorage.all()
+        self.assertEqual(type(instance_1_dict), dict)
+
     def save(self):
         '''check if the save method works'''
         instance_2 = self.basemodel
