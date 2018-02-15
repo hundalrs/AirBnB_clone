@@ -1,0 +1,39 @@
+#!/usr/bin/python3
+'''File Storage test module'''
+
+import os
+from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
+import unittest
+
+
+class MyTest(unittest.TestCase):
+    '''unittests for file storage'''
+
+    def setUp(self):
+        self.basemodel = BaseModel()
+
+    def tearDown(self):
+        del self.basemodel
+
+    def setUp(self):
+        self.filestorage = FileStorage()
+
+    def tearDown(self):
+        del self.filestorage
+
+    def test_all(self):
+        '''check if the all method works'''
+        new_dict = self.filestorage.all()
+        self.assertEqual(type(new_dict), dict)
+
+    def test_filestorage(self):
+        '''check if filestorage is working correctly'''
+        self.assertEqual(type(self.filestorage), type(FileStorage()))
+
+    def save(self):
+        '''check if the save method works'''
+        instance_2 = self.basemodel
+        self.filestorage.new(instance_2)
+        self.filestorage.save()
+        self.assertTrue(os.path.exists("file.json"))
