@@ -13,6 +13,10 @@ from io import StringIO
 
 class TestUserClass(unittest.TestCase):
     '''test suite class'''
+    def test_inheritance(self):
+        '''test that user inherits from basemodel'''
+        new = User()
+        self.assertIsInstance(new, BaseModel)
 
     def test_attributes(self):
         '''checks if attributes exist'''
